@@ -23,3 +23,10 @@ chown -R www-data:www-data $WEBROOT/cache
 chown -R www-data:www-data $WEBROOT/images
 chown -R www-data:www-data $WEBROOT/includes
 
+# php.ini tweaks
+PHPINI=/etc/php5/apache2/php.ini
+sed -i "s|^memory_limit.*|memory_limit = 512M|" $PHPINI
+sed -i "s|^post_max_size.*|post_max_size = 256M|" $PHPINI
+sed -i "s|^upload_max_filesize.*|upload_max_filesize = 256M|" $PHPINI
+sed -i "s|^;date.timezone.*|date.timezone = \"UTC\"|" $PHPINI
+
