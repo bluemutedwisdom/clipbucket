@@ -77,6 +77,22 @@ $CURL "${URL}" --data "mode=finish"
 rm -rf $WEBROOT/cb_install
 rm -f /tmp/cookie
 
+# tweak settings
+cb_set() {
+    $MYSQL_BATCH --execute "UPDATE $DB_NAME.config SET value=\"$2\" WHERE name=\"$1\";"
+}
+
+cb_set "use_crons" "yes"
+cb_set "use_ffmpeg_vf" "yes"
+cb_set "quick_conv" "yes"
+cb_set "server_friendly_conversion" "yes"
+cb_set "max_upload_size" "256"
+cb_set "mail_type" "smtp"
+cb_set "smtp_host" "localhost"
+cb_set "ffmpegpath" "/usr/bin/ffmpeg"
+cb_set "flvtool2path" "/usr/bin/flvtool2"
+cb_set "mp4boxpath" "/usr/bin/MP4Box"
+
 # stop services
 /etc/init.d/mysql stop
 /etc/init.d/apache2 stop
