@@ -37,6 +37,7 @@ a2enmod rewrite
 
 # start services
 /etc/init.d/mysql start
+/etc/init.d/apache2 start
 
 # setup the database
 MYSQL_BATCH="mysql --user=root --password=$MYSQL_PASS --batch"
@@ -45,6 +46,38 @@ MYSQL_ADMIN="mysqladmin --user=root --password=$MYSQL_PASS"
 $MYSQL_ADMIN create $DB_NAME
 $MYSQL_BATCH --execute "grant all privileges on $DB_NAME.* to $DB_USER@localhost identified by '$DB_PASS'; flush privileges;"
 
+# curl based install
+URL="http://127.0.0.1/cb_install/"
+CURL="curl -c /tmp/cookie -b /tmp/cookie"
+
+EMAIL=$(echo $ADMIN_MAIL | sed s/@/%40/)
+DBCONF="dbhost=localhost&dbname=$DB_NAME&dbuser=$DB_USER&dbpass=$DB_PASS&dbprefix="
+ADMINCONF="username=$ADMIN_NAME&password=$ADMIN_PASS&email=$EMAIL"
+
+$CURL "${URL}" --data "mode=precheck"
+$CURL "${URL}" --data "mode=permission"
+$CURL "${URL}" --data "mode=database"
+$CURL "${URL}ajax.php" --data "mode=dataimport&$DBCONF"
+$CURL "${URL}" --data "mode=dataimport&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=structure&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=configs&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=ads_placements&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=countries&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=email_templates&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=pages&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=user_levels&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=add_categories&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=add_admin&$DBCONF"
+$CURL "${URL}ajax.php" --data "mode=adminsettings&step=create_files&$DBCONF"
+$CURL "${URL}" --data "mode=adminsettings&$DBCONF"
+$CURL "${URL}" --data "mode=sitesettings&$ADMINCONF"
+$CURL "${URL}" --data "mode=register&title=TurnKey+ClipBucket&slogan=A+way+to+broadcast+yourself&baseurl=http%3A%2F%2F$DOMAIN"
+$CURL "${URL}" --data "mode=finish"
+
+rm -rf $WEBROOT/cb_install
+rm -f /tmp/cookie
+
 # stop services
 /etc/init.d/mysql stop
+/etc/init.d/apache2 stop
 
