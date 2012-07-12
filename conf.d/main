@@ -93,6 +93,9 @@ cb_set "ffmpegpath" "/usr/bin/ffmpeg"
 cb_set "flvtool2path" "/usr/bin/flvtool2"
 cb_set "mp4boxpath" "/usr/bin/MP4Box"
 
+# bugfix (uploading and displaying photos)
+$MYSQL_BATCH --execute "ALTER TABLE $DB_NAME.photos ADD photo_details TEXT NOT NULL AFTER photo_tags;"
+
 # stop services
 /etc/init.d/mysql stop
 /etc/init.d/apache2 stop
