@@ -5,7 +5,6 @@ Option:
     --pass=     unless provided, will ask interactively
     --email=    unless provided, will ask interactively
     --domain=   unless provided, will ask interactively
-                DEFAULT=www.example.com
 """
 
 import sys
@@ -21,9 +20,6 @@ def usage(s=None):
     print >> sys.stderr, "Syntax: %s [options]" % sys.argv[0]
     print >> sys.stderr, __doc__
     sys.exit(1)
-
-DEFAULT_DOMAIN="www.example.com"
-
 
 def clipbucket_hash(password):
 
@@ -77,10 +73,7 @@ def main():
         domain = d.get_input(
             "ClipBucket Domain",
             "Enter the domain to serve ClipBucket.",
-            DEFAULT_DOMAIN)
-
-    if domain == "DEFAULT":
-        domain = DEFAULT_DOMAIN
+            "www.example.com")
 
     hash = clipbucket_hash(password)
 
