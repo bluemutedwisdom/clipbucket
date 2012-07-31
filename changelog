@@ -1,0 +1,55 @@
+turnkey-clipbucket-12.0 (1) turnkey; urgency=low
+
+  * Initial public release of TurnKey ClipBucket, based on TKLPatch submitted
+    by Jeremy Davis.
+
+  * Set ClipBucket admin password, email and domain on firstboot (convenience,
+    security).
+
+  * Regenerates all secrets during installation / firstboot (security).
+
+  * Tweaked configuration for quick and server friendly conversion, as well
+    as enabled Crons and ffmpeg VF (convenience).
+
+  * Added missing column to photos table preventing upload/display (bugfix).
+
+  * Media packages installed from deb-multimedia, and added to APT.
+
+  * Added missing ffmpeg libx265-normal preset (bugfix).
+
+  * MySQL related:
+
+    - Set MySQL root password on firstboot (convenience, security).
+    - Force MySQL to use Unicode/UTF8.
+    - Includes PhpMyAdmin (listening on port 12322 - uses SSL).
+
+  * SSL support out of the box.
+
+  * Includes php-xcache PHP opcode cacher / optimizer (performance).
+
+  * Includes postfix MTA (bound to localhost) for sending of email (e.g.
+    password recovery). Also includes webmin postfix module for convenience.
+
+  * Major component versions
+
+    clipbucket      2.6-r738 (upstream archive)
+
+    ffmpeg          5:0.7.13-dmo2 (deb-multimedia)
+    gpac            0.4.6~svn20101218-0.0 (deb-multimedia)
+    libfaac-dev     1.28-0.3 (deb-multimedia)
+    libmp3lame-dev  3.98.4-0.0 (deb-multimedia)
+    x264            3:0.118.2085+git8a62835-0.1+1 (deb-multimedia)
+
+    flvtool2        1.0.6-4
+    libtheora-dev   1.1.1+dfsg.1-3
+    libvorbis-dev   1.3.1-1+squeeze1
+
+    apache2         2.2.16-6+squeeze7
+    mysql-server    5.1.63-0+squeeze1
+    phpmyadmin      4:3.3.7-7
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Wed, 01 Aug 2012 08:00:00 +0200
+
