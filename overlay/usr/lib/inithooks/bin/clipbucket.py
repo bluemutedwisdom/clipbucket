@@ -5,7 +5,7 @@ Option:
     --pass=     unless provided, will ask interactively
     --email=    unless provided, will ask interactively
     --domain=   unless provided, will ask interactively
-                DEFAULT=www.example.com
+                DEFAULT=example.com
 """
 
 import sys
@@ -22,7 +22,7 @@ def usage(s=None):
     print >> sys.stderr, __doc__
     sys.exit(1)
 
-DEFAULT_DOMAIN="www.example.com"
+DEFAULT_DOMAIN="example.com"
 
 
 def clipbucket_hash(password):

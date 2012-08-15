@@ -7,7 +7,7 @@ DB_PASS=$(mcookie)
 ADMIN_NAME=admin
 ADMIN_PASS=turnkey
 ADMIN_MAIL=admin@example.com
-DOMAIN=www.example.com
+DOMAIN=example.com
 
 SRC=/usr/local/src
 WEBROOT=/var/www/clipbucket
