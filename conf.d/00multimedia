@@ -1,0 +1,30 @@
+#!/bin/bash -ex
+# required environment variables: CODENAME
+
+fatal() {
+    echo "[$(basename $0)] fatal: $@" 1>&2
+    exit 1
+}
+
+[ -n "$CODENAME" ] || fatal "CODENAME is not set."
+
+NAME="deb-multimedia"
+PACKAGES="deb-multimedia-keyring ffmpeg flvtool2 gpac libfaac-dev libmp3lame-dev libtheora-dev libvorbis-dev x264"
+
+cat >/etc/apt/sources.list.d/$NAME.list<<EOF
+deb http://www.deb-multimedia.org/ $CODENAME main
+EOF
+
+cat >/etc/apt/preferences.d/$NAME<<EOF
+Package: *
+Pin: release o=Unofficial Multimedia Packages
+Pin-Priority: 100
+
+Package: $PACKAGES
+Pin: release o=Unofficial Multimedia Packages
+Pin-Priority: 500
+EOF
+
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get --force-yes --assume-yes install $PACKAGES
+
