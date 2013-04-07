@@ -1,3 +1,29 @@
+turnkey-clipbucket-12.1 (1) turnkey; urgency=low
+
+  * Installing latest versions and pinning (for security) the following
+    multimedia packages from deb-multimedia at build time:
+
+    - deb-multimedia-keyring
+    - ffmpeg
+    - flvtool2
+    - gpac
+    - libfaac-dev
+    - libmp3lame-dev
+    - libtheora-dev
+    - libvorbis-dev
+    - x264
+
+  * Added phpsh (interative shell for PHP) and php5-cli (generically useful).
+
+  * Hardcoded component versions:
+
+    clipbucket      2.6-r738
+
+  * Note: Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
+
+ -- Alon Swartz <alon@turnkeylinux.org>  Sun, 07 Apr 2013 08:00:00 +0200
+
 turnkey-clipbucket-12.0 (1) turnkey; urgency=low
 
   * Initial public release of TurnKey ClipBucket, based on TKLPatch submitted
