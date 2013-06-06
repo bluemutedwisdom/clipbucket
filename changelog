@@ -15,7 +15,7 @@ turnkey-clipbucket-12.1 (1) turnkey; urgency=low
 
   * Added phpsh (interative shell for PHP) and php5-cli (generically useful).
 
-  * Hardcoded component versions:
+  * Upstream source component versions:
 
     clipbucket      2.6-r738
 
