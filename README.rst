@@ -29,7 +29,7 @@ Credentials *(passwords set at first boot)*
 -------------------------------------------
 
 -  Webmin, SSH, MySQL, phpMyAdmin: username **root**
--  ClipBucket: username **admin**, email **admin@example.com**
+-  ClipBucket: username **admin**
 
 .. _ClipBucket: http://clip-bucket.com/
 .. _TurnKey Core: http://www.turnkeylinux.org/core
