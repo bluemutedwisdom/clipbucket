@@ -7,3 +7,10 @@ php5-curl
 
 unzip
 
+ffmpeg
+flvtool2
+gpac
+libmp3lame-dev
+libtheora-dev
+libvorbis-dev
+x264

@@ -9,7 +9,7 @@ fatal() {
 [ -n "$CODENAME" ] || fatal "CODENAME is not set."
 
 NAME="deb-multimedia"
-PACKAGES="deb-multimedia-keyring ffmpeg flvtool2 gpac libfaac-dev libmp3lame-dev libtheora-dev libvorbis-dev x264"
+PACKAGES="deb-multimedia-keyring libfaac-dev"
 
 cat >/etc/apt/sources.list.d/$NAME.list<<EOF
 deb http://www.deb-multimedia.org/ $CODENAME main
