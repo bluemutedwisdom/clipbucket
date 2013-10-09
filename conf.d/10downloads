@@ -5,7 +5,7 @@ dl() {
     cd $2; curl -L -f -O $PROXY $1; cd -
 }
 
-VERSION="ClipBucket%20v2/clipbucket-2.6-r738.zip"
+VERSION="ClipBucket%20v2/clipbucket-2.6-r738-security-fixed.zip"
 URL="https://sourceforge.net/projects/clipbucket/files/$VERSION"
 
 dl $URL /usr/local/src
