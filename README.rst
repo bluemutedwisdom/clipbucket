@@ -15,7 +15,6 @@ and on top of that:
    - Installed from upstream source code to /var/www/clipbucket
    - Tweaked configuration for quick and server friendly conversion, as
      well as enabled Crons and ffmpeg VF for convenience.
-   - Media packages installed from deb-multimedia, and added to APT.
 
 - SSL support out of the box.
 - `PHPMyAdmin`_ administration frontend for MySQL (listening on
