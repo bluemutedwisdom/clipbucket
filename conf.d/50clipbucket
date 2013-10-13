@@ -15,7 +15,7 @@ WEBROOT=/var/www/clipbucket
 # unpack and set permissions
 mkdir -p $SRC/clipbucket
 unzip $SRC/clipbucket-*.zip -d $SRC/clipbucket
-mv $SRC/clipbucket/upload $WEBROOT
+mv $SRC/clipbucket/clipbucket-*/upload $WEBROOT
 rm -rf $SRC/clipbucket*
 chown -R root:root $WEBROOT
 chown -R www-data:www-data $WEBROOT/files
