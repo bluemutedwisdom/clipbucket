@@ -31,7 +31,7 @@ sed -i "s|^upload_max_filesize.*|upload_max_filesize = 256M|" $PHPINI
 sed -i "s|^;date.timezone.*|date.timezone = \"UTC\"|" $PHPINI
 
 # configure apache
-a2dissite default
+a2dissite 000-default
 a2ensite clipbucket
 a2enmod rewrite
 
