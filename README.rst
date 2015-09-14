@@ -31,5 +31,5 @@ Credentials *(passwords set at first boot)*
 
 
 .. _ClipBucket: http://clip-bucket.com/
-.. _TurnKey Core: http://www.turnkeylinux.org/core
+.. _TurnKey Core: https://www.turnkeylinux.org/core
 .. _PHPMyAdmin: http://www.phpmyadmin.net
